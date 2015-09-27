@@ -70,6 +70,8 @@ set ruler
 set laststatus=2
 set rulerformat=10%(%m%r\ %3l\ %c\ %p%%%)
 set hidden "in order to switch between buffers with unsaved change"
+set ignorecase
+set smartcase
 
 set softtabstop=2
 set shiftwidth=2
@@ -144,3 +146,7 @@ let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
 " edit like Emacs
 imap <C-a> <ESC>I
 imap <C-e> <ESC>A
+
+" go to next line directly
+imap <D-CR> <ESC>o
+imap <D-S-CR> <ESC>O
