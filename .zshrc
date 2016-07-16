@@ -30,7 +30,7 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse bundler)
-plugins=(git brew gem powder liquidluck rails ruby heroku github bundler vagrant)
+plugins=(osx git brew gem powder liquidluck rails ruby heroku github bundler vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -49,9 +49,8 @@ export PATH=~/.cabal/bin:$PATH
 unsetopt correct_all
 # alias youku="python ~/apps/youku-lixian/youku.py"
 alias clj="java -cp /Users/maorui/apps/clojure-1.6.0.jar clojure.main"
-alias aria2c="aria2c -x10"
+alias aria2c="/usr/local/bin/aria2c -x10"
 alias lx="python ~/apps/xunlei-lixian/lixian_cli.py"
-# alias you-get="python3 ~/apps/you-get/you-get"
 alias at=". ~/ve/bin/activate"
 alias at3=". ~/ve3/bin/activate"
 alias pipup="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U"
@@ -62,7 +61,6 @@ alias cdk="cd ~/Desktop"
 alias cdl="cd ~/Downloads"
 alias cdm="cd ~/Movies"
 alias s="subl"
-alias s3="subl3"
 alias m="mate"
 alias rrr="rbenv rehash"
 
@@ -74,13 +72,12 @@ export BUNDLER_EDITOR=mate
 export CLICOLOR=1
 export LSCOLORS=exfxcxdxbxexexabagacad
 alias sn="subl -n"
-alias sn3="subl3 -n"
 alias rake="noglob bundled_rake"
 alias irb="irb --simple-prompt"
-alias brew="ALL_PROXY=127.0.0.1:65432 brew"
-alias pip="pip --proxy 127.0.0.1:65432"
+# alias brew="ALL_PROXY=127.0.0.1:6152 brew"
+# alias pip="pip --proxy 127.0.0.1:65432"
 alias t='python /Users/maorui/apps/t/t.py --task-dir ~/tasks --list tasks'
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --use-spdy=off'
-source ~/ve/bin/activate
-# export http_proxy=127.0.0.1:65432
-# export https_proxy=127.0.0.1:65432
+source ~/ve3/bin/activate
+export http_proxy=http://127.0.0.1:8888
+export https_proxy=http://127.0.0.1:8888

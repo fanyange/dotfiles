@@ -14,7 +14,10 @@ Plugin 'VundleVim/Vundle.vim'
 " " Keep Plugin commands between vundle#begin/end.
 " " plugin on GitHub repo
 
+Plugin 'kana/vim-textobj-lastpat'
+Plugin 'kana/vim-textobj-user'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
@@ -30,11 +33,11 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'goyo.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-" Plugin 'scrooloose/nerdtree'
 Plugin 'slim-template/vim-slim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'keith/swift.vim'
 " Plugin 'jiangmiao/auto-pairs'
 
 
@@ -52,7 +55,7 @@ filetype plugin indent on    " required
 " # Non-Plugin stuff
 runtime macros/matchit.vim
 
-" 没有八进制数
+" 数字全部视作十进制
 set nrformats=
 " 关闭提示音
 set vb t_vb= 
@@ -73,6 +76,9 @@ set hidden "in order to switch between buffers with unsaved change"
 set ignorecase
 set smartcase
 
+set hlsearch
+
+set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 set expandtab
@@ -102,9 +108,10 @@ function! NumberToggle()
 endfunc
 
 "use relative line number"
-"nnoremap <C-n> :call NumberToggle()<CR>
+nnoremap <C-n> :call NumberToggle()<CR>
 "use Ctrol+l to insert a space before and after intert location.
-imap <C-l> <ESC>2a <ESC>i
+" imap <C-l> <ESC>2a <ESC>i
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 imap <S-F7> <ESC>
 
@@ -121,6 +128,9 @@ imap <C-CR> <CR><ESC>O
 
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
+
+" Marked 2
+nnoremap <leader>m :silent !open -a Marked\ 2.app '%:p'<CR>
 
 "Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee  > /dev/null %
@@ -141,12 +151,17 @@ set iminsert=0
 set imsearch=0
 
 "vimwiki
-let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_list = [{'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/blog/wiki', 'syntax': 'markdown', 'ext': '.md'}]
 
 " edit like Emacs
 imap <C-a> <ESC>I
-imap <C-e> <ESC>A
+" imap <C-e> <ESC>A
 
 " go to next line directly
 imap <D-CR> <ESC>o
 imap <D-S-CR> <ESC>O
+
+" Esay motion
+nmap ]s <Plug>(easymotion-f)
+nmap [s <Plug>(easymotion-F)
